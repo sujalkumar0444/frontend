@@ -1,0 +1,13 @@
+.bg-container{
+    background-color: black;
+    color: white;
+    height: 80px;
+    display: flex;
+    justify-content: space-between; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* This adds the shadow */
+  }
+  
+  .logo.text-center{
+    height: 50%;
+    margin-top: 15px;
+  }
