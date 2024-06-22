@@ -1,0 +1,30 @@
+.profile-section {
+  /* background-color: #eee; */
+  padding-top: 50px;
+}
+
+.profile-avatar {
+  width: 150px;
+}
+
+.profile-heatmap-card {
+  padding-top: 2rem;
+  padding-left: 0;
+}
+
+.profile-heatmap-stats {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: end;
+}
+
+.profile-heatmap {
+  width: 10rem;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

@@ -70,7 +70,8 @@ function NavBar() {
                   menuVariant="dark"
                   align="end"
                 >
-                  <NavDropdown.Item as={Link} to="/profile">
+                  <NavDropdown.Item as={Link} to="/profile" >
+
                     <Image
                       roundedCircle
                       style={{ width: "40px", height: "40px", marginRight: "10px" }}
