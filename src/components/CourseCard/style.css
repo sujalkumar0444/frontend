@@ -1,0 +1,79 @@
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  max-width: 400px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  font-size: 1.75em;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.lessonsInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.totalLessons, .completedLessons {
+  margin: 0 10px;
+}
+
+.progressContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.courseButton {
+  padding: 10px 20px;
+  background-color: #123c58;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.courseButton:hover {
+  background-color: #111d25;
+}
+
+.circular {
+  width: 60px;
+  height: 60px;
+  transform: rotate(-90deg);
+}
+
+.path {
+  stroke: #3498db;
+  stroke-linecap: round;
+}
+
+.progress-text {
+  fill: #3498db;
+  font-size: 12px;
+  font-weight: bold;
+}

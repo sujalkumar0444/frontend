@@ -5,6 +5,7 @@ import Leaderboard from "./pages/Leaderboard";
 import Jobs from "./pages/Jobs";
 import Contests from "./pages/Contests";
 import Profile from "./pages/Profile";
+import Courses from "./pages/Courses";
 
 function App() {
   return (<>
@@ -15,6 +16,7 @@ function App() {
     <Route path="/jobs" element={<Jobs />} />
     <Route path="/contests" element={<Contests />} />
     <Route path="/profile" element={<Profile />} />
+    <Route path="/courses" element={<Courses />} />
     </Routes>
   </BrowserRouter>
    
