@@ -34,11 +34,5 @@
   background-color: #6a757c; /* Darker orange on hover */
 }
 
-.loading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full viewport height */
-  text-align: center;
-}
+
 

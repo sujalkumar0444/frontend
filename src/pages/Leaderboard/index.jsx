@@ -28,7 +28,8 @@ const getData = async () => {
         },
       });
       console.log(response.data);
-      const sortedData = response.data;
+      const sortedData = response.data.result;
+      console.log(sortedData);
       setData(sortedData);
       
     } catch (error) {

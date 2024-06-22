@@ -11,3 +11,8 @@
     height: 50%;
     margin-top: 15px;
   }
+  .navbar {
+
+  z-index: 1300; /* Higher than the AppBar's z-index */
+
+}

@@ -1,0 +1,8 @@
+.leaderbutton {
+  background-color: rgb(120, 128, 161);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.leaderbutton:hover {
+  background-color: rgb(154, 167, 228);
+}

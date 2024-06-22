@@ -64,15 +64,15 @@ function NavBar() {
                 </Nav.Link>
               </Nav>
               <Nav>
-                <NavDropdown
+                <NavDropdown 
                   id="nav-dropdown-dark-example"
                   title={<FaUser />}
                   menuVariant="dark"
                   align="end"
                 >
-                  <NavDropdown.Item as={Link} to="/profile" >
+                  <NavDropdown.Item as={Link} to="/profile">
 
-                    <Image
+                    <Image 
                       roundedCircle
                       style={{ width: "40px", height: "40px", marginRight: "10px" }}
                       alt="Profile"

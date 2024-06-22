@@ -1,4 +1,4 @@
-.card {
+.coursecard {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 20px;
@@ -9,7 +9,7 @@
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.card:hover {
+.coursecard:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -59,6 +59,7 @@
 
 .courseButton:hover {
   background-color: #111d25;
+  color:white;
 }
 
 .circular {

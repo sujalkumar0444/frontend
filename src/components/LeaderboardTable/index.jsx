@@ -1,11 +1,11 @@
 import { DataGrid, gridClasses } from "@mui/x-data-grid";
 import { alpha, styled } from "@mui/material/styles";
 import { useEffect, useState } from "react";
-import { ClipLoader } from "react-spinners";
-import "./style.css";
 import { FaFileDownload } from "react-icons/fa";
+import "./style.css";
 
 const ODD_OPACITY = 0.2;
+
 const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
   [`& .${gridClasses.row}.even`]: {
     backgroundColor: theme.palette.grey[200],
@@ -27,7 +27,6 @@ const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
             theme.palette.action.selectedOpacity +
             theme.palette.action.hoverOpacity
         ),
-        // Reset on touch devices, it doesn't add specificity
         "@media (hover: none)": {
           backgroundColor: alpha(
             theme.palette.primary.main,
@@ -40,98 +39,28 @@ const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
 }));
 
 const columns = [
-  {
-    field: "rank",
-    headerName: "Rank",
-    width: 130,
-    headerClassName: "super-app-theme--header",
-    headerAlign: "center",
-    cellClassName: "super-app-theme--cell",
-  },
-  {
-    field: "name",
-    headerName: "Name",
-    width: 300,
-    headerClassName: "super-app-theme--header",
-    headerAlign: "center",
-    cellClassName: "super-app-theme--name",
-  },
-  {
-    field: "roll_no",
-    headerName: "Roll Number",
-    width: 200,
-    headerClassName: "super-app-theme--header",
-    headerAlign: "center",
-    cellClassName: "super-app-theme--cell",
-  },
-  {
-    field: "leetcode",
-    headerName: "LeetCode",
-    type: "number",
-    width: 130,
-    headerClassName: "super-app-theme--header",
-    headerAlign: "center",
-    cellClassName: "super-app-theme--cell",
-  },
-  {
-    field: "codeforces",
-    headerName: "Codeforces",
-    type: "number",
-    width: 130,
-    headerClassName: "super-app-theme--header",
-    headerAlign: "center",
-    cellClassName: "super-app-theme--cell",
-  },
-  {
-    field: "codechef",
-    headerName: "Codechef",
-    type: "number",
-    width: 130,
-    headerClassName: "super-app-theme--header",
-    headerAlign: "center",
-    cellClassName: "super-app-theme--cell",
-  },
-  {
-    field: "hackerrank",
-    headerName: "Hackerrank",
-    type: "number",
-    width: 130,
-    headerClassName: "super-app-theme--header",
-    headerAlign: "center",
-    cellClassName: "super-app-theme--cell",
-  },
-  {
-    field: "spoj",
-    headerName: "SPOJ",
-    type: "number",
-    width: 130,
-    headerClassName: "super-app-theme--header",
-    headerAlign: "center",
-    cellClassName: "super-app-theme--cell",
-  },
-  {
-    field: "totalScore",
-    headerName: "Total Score",
-    type: "number",
-    width: 220,
-    headerClassName: "super-app-theme--header",
-    headerAlign: "center",
-    cellClassName: "super-app-theme--cell",
-  },
+  { field: "rank", headerName: "Rank", width: 130, headerClassName: "super-app-theme--header", headerAlign: "center", cellClassName: "super-app-theme--cell" },
+  { field: "name", headerName: "Name", width: 300, headerClassName: "super-app-theme--header", headerAlign: "center", cellClassName: "super-app-theme--name" },
+  { field: "roll_no", headerName: "Roll Number", width: 200, headerClassName: "super-app-theme--header", headerAlign: "center", cellClassName: "super-app-theme--cell" },
+  { field: "leetcode", headerName: "LeetCode", type: "number", width: 130, headerClassName: "super-app-theme--header", headerAlign: "center", cellClassName: "super-app-theme--cell" },
+  { field: "codeforces", headerName: "Codeforces", type: "number", width: 130, headerClassName: "super-app-theme--header", headerAlign: "center", cellClassName: "super-app-theme--cell" },
+  { field: "codechef", headerName: "Codechef", type: "number", width: 130, headerClassName: "super-app-theme--header", headerAlign: "center", cellClassName: "super-app-theme--cell" },
+  { field: "hackerrank", headerName: "Hackerrank", type: "number", width: 130, headerClassName: "super-app-theme--header", headerAlign: "center", cellClassName: "super-app-theme--cell" },
+  { field: "spoj", headerName: "SPOJ", type: "number", width: 130, headerClassName: "super-app-theme--header", headerAlign: "center", cellClassName: "super-app-theme--cell" },
+  { field: "totalScore", headerName: "Total Score", type: "number", width: 220, headerClassName: "super-app-theme--header", headerAlign: "center", cellClassName: "super-app-theme--cell" },
 ];
 
 function convertToCSV(data) {
   if (!data || data.length === 0) {
     return ""; // Return an empty string if data is undefined, null, or empty
   }
-  const header = Object.keys(data[0]).join(",");
-  const rows = data.map((row) => Object.values(row).join(","));
+  const header = [...Object.keys(data[0]), 'id'].join(",");
+  const rows = data.map((row, index) => [...Object.values(row), index + 1].join(","));
   return header + "\n" + rows.join("\n");
 }
 
 export default function LeaderboardTable({ data }) {
   const [csvData, setCsvData] = useState("");
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (data && data.length > 0) {
@@ -139,7 +68,7 @@ export default function LeaderboardTable({ data }) {
     }
   }, [data]);
 
-  data = data.map((row, index) => ({ ...row, rank: index + 1 }));
+  data = data.map((row, index) => ({ ...row, id: index + 1, rank: index + 1 }));
 
   function handleDownload() {
     const csvContent =
@@ -154,7 +83,7 @@ export default function LeaderboardTable({ data }) {
   return (
     <div>
           <div className="leaderboard-header">
-            <h1 className="ms-auto heading-text">Batch 2026 - Leaderboard</h1>
+            <h1 className="ms-auto heading-text">Leaderboard</h1>
             <button className="btn btn-dark ms-auto mb-1" onClick={handleDownload}>
               <FaFileDownload />
               CSV
