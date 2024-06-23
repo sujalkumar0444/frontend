@@ -19,7 +19,7 @@ const Contests = () => {
             const response = await api.get("/contests", {
                 headers: {
                     "Content-Type": "application/json",
-                    authorization: "Bearer " + jwtToken,
+                    authorization: "Bearer " + jwtToken(),
                 },
             });
             console.log(response.data);

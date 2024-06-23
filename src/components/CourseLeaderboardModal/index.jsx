@@ -16,7 +16,7 @@ function CourseLeaderboardModal(props) {
                 const response = await api.get(`/course/leaderboard/${props.courseid}`, {
                   headers: {
                     "Content-Type": "application/json",
-                    authorization: "Bearer " + jwtToken,
+                    authorization: "Bearer " + jwtToken(),
                   },
                 });
         

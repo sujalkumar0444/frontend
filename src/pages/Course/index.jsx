@@ -19,7 +19,7 @@ export default function Course() {
                 const response = await api.get(`fetch/course/${courseid}`, {
                     headers: {
                         "Content-Type": "application/json",
-                        authorization: "Bearer " + jwtToken,
+                        authorization: "Bearer " + jwtToken(),
                     },
                 });
                 console.log(response.data);

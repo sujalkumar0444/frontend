@@ -9,6 +9,8 @@ import Contests from "./pages/Contests";
 import Profile from "./pages/Profile";
 import Courses from "./pages/Courses";
 import Course from "./pages/Course";
+import Login from "./pages/Login";
+
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
   <BrowserRouter>
   <Navbar />
   <Routes>
+    <Route path="/" element={<Login />} />
     <Route path="/leaderboard" element={<Leaderboard />} />
     <Route path="/jobs" element={<Jobs />} />
     <Route path="/contests" element={<Contests />} />

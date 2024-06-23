@@ -18,7 +18,7 @@ const Jobs = () => {
       const response = await api.get("/jobs", {
         headers: {
           "Content-Type": "application/json",
-          authorization: "Bearer " + jwtToken,
+          authorization: "Bearer " + jwtToken(),
         },
       });
       console.log(response.data);

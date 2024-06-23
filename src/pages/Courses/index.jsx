@@ -23,7 +23,7 @@ const Courses = () => {
   //       headers: {
   //         "Content-Type": "application/json",
   //         authorization:
-  //           "Bearer " + jwtToken,
+  //           "Bearer " + jwtToken(),
   //       },
   //     });
   //     console.log(response.data);

@@ -18,7 +18,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CourseLeaderboardModal from '../CourseLeaderboardModal';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
-import { ClipLoader } from "react-spinners";
+import { ClipLoader } from 'react-spinners';
 import { fetchProgress, addProgress } from '../../redux/progressSlice';
 import api from '../../api/axiosConfig';
 import jwtToken from '../../api/jwtToken';
@@ -116,8 +116,8 @@ export default function CourseSidebar(props) {
     try {
       const response = await api.get(`/lesson/preview/${lessonId}`, {
         headers: {
-          "Content-Type": "application/json",
-          authorization: "Bearer " + jwtToken,
+          'Content-Type': 'application/json',
+          authorization: 'Bearer ' + jwtToken(),
         },
       });
 
@@ -126,13 +126,15 @@ export default function CourseSidebar(props) {
       if (lessonData.text_content) {
         setContent(lessonData.text_content);
 
-        if (lessonType === 'text_content' && !isLessonCompleted(moduleId, lessonId)){
-          dispatch(addProgress({
-            courseId: props.courseid,
-            moduleId: moduleId,
-            lessonId: lessonId,
-            lessonPoints: lessonPoints
-          }));
+        if (lessonType === 'text_content' && !isLessonCompleted(moduleId, lessonId)) {
+          dispatch(
+            addProgress({
+              courseId: props.courseid,
+              moduleId: moduleId,
+              lessonId: lessonId,
+              lessonPoints: lessonPoints,
+            })
+          );
         }
       } else if (lessonData.problem_id) {
         setContent(lessonData.problem_id.problem_description);
@@ -213,11 +215,12 @@ export default function CourseSidebar(props) {
                   <LessonTypography
                     onClick={() => handleLessonClick(lesson._id, lesson.lesson_title, module._id, lesson.lesson_points, 'text_content')}
                     selected={selectedLesson === `${module._id}_${lesson._id}`}
+                    component="div" // Ensure it's rendered as a <div>
                   >
                     <div>
                       {lesson.lesson_title}
                       {isLessonCompleted(module._id, lesson._id) && (
-                        <EventAvailableIcon sx={{ color: 'white', ml: 1.5 , width: "15px" } } />
+                        <EventAvailableIcon sx={{ color: 'white', ml: 1.5, width: '15px' }} />
                       )}
                     </div>
                   </LessonTypography>
@@ -231,12 +234,12 @@ export default function CourseSidebar(props) {
       <Main open={open}>
         {loading ? (
           <div className="loading-container">
-            <ClipLoader size={50} color={"#123abc"} loading={loading} />
+            <ClipLoader size={50} color={'#123abc'} loading={loading} />
           </div>
         ) : (
           <>
             <DrawerHeader />
-            <Typography paragraph dangerouslySetInnerHTML={{ __html: content }} />
+            <Typography component="div" paragraph dangerouslySetInnerHTML={{ __html: content }} />
           </>
         )}
       </Main>

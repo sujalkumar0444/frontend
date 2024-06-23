@@ -8,7 +8,7 @@ export const fetchProgress = createAsyncThunk('progress/fetchProgress', async (c
   const response = await api.get(`/fetch/progress/${courseId}`, {
     headers: {
       "Content-Type": "application/json",
-      authorization: "Bearer " + jwtToken,
+      authorization: "Bearer " + jwtToken(),
     },
   });
   return response.data;
@@ -23,7 +23,7 @@ export const addProgress = createAsyncThunk('progress/addProgress', async ({ cou
   }, {
     headers: {
       "Content-Type": "application/json",
-      authorization: "Bearer " + jwtToken,
+      authorization: "Bearer " + jwtToken(),
     },
   });
   return { moduleId, lessonId };

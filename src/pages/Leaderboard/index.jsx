@@ -8,7 +8,6 @@ import { ClipLoader } from "react-spinners";
 
 
 function Leaderboard() {
-
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +23,7 @@ const getData = async () => {
         headers: {
           "Content-Type": "application/json",
           authorization:
-            "Bearer " + jwtToken,
+            "Bearer " + jwtToken(),
         },
       });
       console.log(response.data);

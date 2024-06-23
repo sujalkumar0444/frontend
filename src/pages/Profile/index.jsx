@@ -31,7 +31,7 @@ export default function Profile() {
         const response = await api.get("/dashboard", {
           headers: {
             "Content-Type": "application/json",
-            authorization: "Bearer " + jwtToken,
+            authorization: "Bearer " + jwtToken(),
           },
         });
 

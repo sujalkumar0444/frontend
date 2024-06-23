@@ -4,13 +4,14 @@ import { MdLeaderboard, MdWork } from "react-icons/md";
 import { IoBookOutline } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import jwtToken from "../../api/jwtToken";
+import Cookies from "js-cookie";
 import './style.scss';
 import './style.css';
 
 function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const isLoggedIn = jwtToken !== undefined;
+  const isLoggedIn = jwtToken() !== undefined;
 
   const logOut = () => {
     Cookies.remove("jwtToken");
@@ -19,15 +20,7 @@ function NavBar() {
 
   return (
     <>
-      {/* {(location.pathname === "/" || location.pathname === "/forgot") && (
-        <div className="bg-container shadow ps-4 pe-4 p-2">  
-          <img src="" className="logo" alt="Logo"/>
-          <img src="/assets/images/MlrLogo.png" alt="MLRIT" className="logo text-center"/>
-        </div>
-        //will check later
-      )}     */}
-      
-      {isLoggedIn && (
+    {isLoggedIn && (
         <Navbar className="bg-color sticky shadow" variant="dark" expand="lg">
           <Container fluid>
             <Navbar.Brand as={Link} to="/leaderboard"><img src=""></img>CodeSense</Navbar.Brand>
