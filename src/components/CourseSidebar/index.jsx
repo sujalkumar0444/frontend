@@ -112,7 +112,7 @@ export default function CourseSidebar(props) {
 
   const handleLessonClick = async (lessonId, lesson, moduleId, lessonPoints, lessonType) => {
     setLoading(true);
-    setSelectedLesson(lesson);
+    setSelectedLesson(`${moduleId}_${lessonId}`);
     try {
       const response = await api.get(`/lesson/preview/${lessonId}`, {
         headers: {
